@@ -22,11 +22,11 @@ else
 fi
 
 if [ -n "${PERISCOPE_KEY}" ]; then
-	echo "Periscope.tv activated"
+	echo "Periscope activated"
 	PERISCOPE_KEY_esc=$(echo "$PERISCOPE_KEY" | sed 's/[\*\.&]/\\&/g')
 	sed -i 's|#periscope|push '"$PERISCOPE_URL""$PERISCOPE_KEY_esc"';|g' /etc/nginx/nginx.conf 
 else 
-    echo "No Periscope.tv stream key set... disabling"
+    echo "No Periscope stream key set... disabling"
     sed -i 's|#periscope| |g' /etc/nginx/nginx.conf 
 fi
 
